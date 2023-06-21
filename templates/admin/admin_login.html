@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+  <style>
+    /* Add custom styles here */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    body {
+            background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25saW5lJTIwZXhhbXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+            background-size: cover;
+        }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333333;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: aqua;
+      color: black;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+ {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+ 
+  <div class="container">
+    <h2>Admin Login</h2>
+    <form action="/admin/login" method="POST">
+      <input type="email" name="email" placeholder="Email" required>
+      <br>
+      <input type="password" name="password" placeholder="Password" required>
+      <br>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</body>
+</html>

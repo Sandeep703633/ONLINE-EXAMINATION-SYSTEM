@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Exam</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container label,
+        .container input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Exam Category</h2>
+        <form>
+            <label for="category">Select Category:</label>
+            <select id="category" name="category">
+                <option value="math">Math Exam</option>
+                <option value="science">Science Exam</option>
+                <option value="english">English Exam</option>
+            </select>
+
+            <input type="submit" value="Start Exam">
+        </form>
+    </div>
+</body>
+</html>

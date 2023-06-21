@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+
+        table {
+            background-color: white;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th.question-id {
+            background-color: #ff6f00; /* Orange */
+        }
+
+        th.question-name {
+            background-color: #2196f3; /* Blue */
+        }
+
+        th.subject-id {
+            background-color: #4caf50; /* Green */
+        }
+
+        th.update-link {
+            background-color: #ffc107; /* Yellow */
+        }
+
+        th.delete-link {
+            background-color: #f44336; /* Red */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th class="question-id">Question id</th>
+                <th class="question-name">Question name</th>
+                <th class="subject-id">Subject Id</th>
+                <th class="update-link">Update Link</th>
+                <th class="delete-link">Delete Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr> 
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td> <a href="{{url_for('updatequestion',question_id=i[0])}}">update</a></td>
+                <td> <a href="{{url_for('deletequestion',question_id=i[0])}}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>  
+</body>
+</html>

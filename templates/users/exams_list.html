@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25saW5lJTIwZXhhbXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+            background-size: cover;
+        }
+
+        .container {
+            width: 300px;
+            margin: 20px 0 20px 20px; /* Adjusted margin property */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin: 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logout {
+            text-align: right;
+            margin-top: -30px;
+            font-size: 12px;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logout a:hover {
+            color: #999;
+        }
+
+        .menu {
+            margin-top: 20px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .menu li {
+            margin-bottom: 10px;
+        }
+
+        .menu li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            background-color: aqua;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">List Of Exam's Avilable</h2>
+        <div class="logout">
+            <a href="{{url_for('admin')}}">&#8617; Logout</a>
+        </div>
+        <ul class="menu">
+            {% for row in data %}
+            <!-- <li><a href="#">{{ row[1] }}</a></li> -->
+            <li><a href="{{ url_for('instructions', subject_code=row[0]) }}">{{ row[1] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

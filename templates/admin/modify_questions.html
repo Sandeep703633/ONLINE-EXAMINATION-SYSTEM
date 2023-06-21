@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modify Questions</title>
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25saW5lJTIwZXhhbXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+            background-size: cover;
+        }
+
+        .container {
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin: 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-field {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-field:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">Modify Questions</h2>
+        <form method="POST">
+            {% for question in questions %}
+            <div class="question">
+                <label class="form-label">Question ID: {{ question[0] }}</label>
+                <textarea class="form-field" name="questionBody" rows="3">{{ question[1] }}</textarea>
+                <input class="form-field" type="text" name="option1" value="{{ question[2] }}" placeholder="Option 1">
+                <input class="form-field" type="text" name="option2" value="{{ question[3] }}" placeholder="Option 2">
+                <input class="form-field" type="text" name="option3" value="{{ question[4] }}" placeholder="Option 3">
+                <input class="form-field" type="text" name="option4" value="{{ question[5] }}" placeholder="Option 4">
+                <input class="form-field" type="text" name="correctOption" value="{{ question[6] }}" placeholder="Correct Option">
+                <input type="text" name="marks" value="{{ question[8] }}">
+                
+            </div>
+            {% endfor %}
+            <input class="form-button" type="submit" value="Save Changes">
+        </form>
+    </div>
+</body>
+</html>

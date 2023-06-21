@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Exam</title>
+    <style>
+        body {
+            background-image: url("https://images.indianexpress.com/2020/05/book-759.jpg");
+            background-size: cover;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container label,
+        .container input[type="text"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: aqua;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Create New Exam</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <center><b>{{ message }}</b></center>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form action="/create-exam" method="POST">
+            <label for="subjectCode">Subject Code:</label>
+            <input type="text" id="subjectCode" name="subjectCode" placeholder="Enter the Subject Code">
+
+            <label for="examName">Exam Name:</label>
+            <input type="text" id="examName" name="examName" placeholder="Enter the exam name">
+
+            <label for="examDate">Exam Date:</label>
+            <input type="date" id="examDate" name="examDate" placeholder="Enter the exam date">
+
+            <label for="timeLimit">Time Limit (HH:MM):</label>
+            <input type="time" id="timeLimit" name="timeLimit" placeholder="Enter the time limit" step="60">
+
+            <label for="totalMarks">Total Marks:</label>
+            <input type="text" id="totalMarks" name="totalMarks" placeholder="Enter the total marks">
+
+            <input type="submit" value="Create Exam">
+        </form>
+    </div>
+</body>
+
+</html>

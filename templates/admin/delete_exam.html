@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Exam</title>
+    <style>
+        body {
+            background-image: url("https://images.indianexpress.com/2020/05/book-759.jpg");
+            background-size: cover;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container label,
+        .container input[type="text"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color:aqua;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="container">
+        <h2>Delete Existing Exam</h2>
+        <form method="POST" action="/delete-exam">
+            <label for="examId">Subject Code:</label>
+            <input type="text" id="examId" name="examId" placeholder="Enter the Subject Code">
+
+            <input type="submit" value="Delete Exam">
+        </form>
+    </div>
+</body>
+</html>

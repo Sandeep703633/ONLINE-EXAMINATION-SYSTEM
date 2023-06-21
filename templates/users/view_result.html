@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exam Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2,
+        h3 {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exam Results</h1>
+    <h2>Exam: {{ exam_name }}</h2>
+    <h3>Total Marks: {{ total_marks }}</h3>
+    <h3>Total Score: {{ total_score[0] }}</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Options</th>
+                <th>Correct Answer</th>
+                <th>Your Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in question_data %}
+            <tr>
+                <td>{{ question[1] }}</td>
+                <td>
+                    <ul>
+                        <li>{{ question[2] }}</li>
+                        <li>{{ question[3] }}</li>
+                        <li>{{ question[4] }}</li>
+                        <li>{{ question[5] }}</li>
+                    </ul>
+                </td>
+                <td>{{ question[6] }}</td>
+                <td>{{ question[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

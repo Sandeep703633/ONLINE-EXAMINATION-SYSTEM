@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: linear-gradient(to bottom right, #2c3e50, #3498db);
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ol {
+            margin-left: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Quiz Instructions</h1>
+    <p>Welcome to the quiz! Please read the instructions carefully before starting:</p>
+    <ol>
+        <li>This quiz consists of multiple-choice questions.</li>
+        <li>You will have a specific time limit to complete the quiz.</li>
+        <li>Each question has multiple options, out of which only one option is correct.</li>
+        <li>Choose the correct option for each question by selecting the radio button next to it.</li>
+        <li>Once you select an option, you cannot change it.</li>
+        <li>Click the "Submit" button at the end to submit your answers.</li>
+    </ol>
+    <h2>Quiz Details:</h2>
+    <p>Subject Code: {{ subject_code }}</p>
+    <p>Exam Name: {{ exam_name }}</p>
+    <p>Exam Date: {{ exam_date }}</p>
+    <p>Time Limit: {{ time_limit }}</p>
+    <p>Total Marks: {{ total_marks }}</p>
+    <form action="{{ url_for('start_exam', subject_code=subject_code) }}" method="GET">
+        <input type="submit" value="Start Exam">
+    </form>
+</body>
+
+</html>

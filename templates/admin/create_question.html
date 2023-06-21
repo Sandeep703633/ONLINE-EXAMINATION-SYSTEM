@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Question</title>
+    <style>
+        body {
+            background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25saW5lJTIwZXhhbXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+            background-size: cover;
+        }
+
+        .container {
+            width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            margin: 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group button {
+            padding: 8px 16px;
+            background-color: aqua;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">Create Question</h2>
+        <form action="{{ url_for('create_question', subject_code=subject_code) }}" method="POST">
+            <div class="form-group">
+                <label for="questionBody">Question Body</label>
+                <textarea id="questionBody" name="questionBody" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="option1">Option 1</label>
+                <input type="text" id="option1" name="option1" required>
+            </div>
+            <div class="form-group">
+                <label for="option2">Option 2</label>
+                <input type="text" id="option2" name="option2" required>
+            </div>
+            <div class="form-group">
+                <label for="option3">Option 3</label>
+                <input type="text" id="option3" name="option3" required>
+            </div>
+            <div class="form-group">
+                <label for="option4">Option 4</label>
+                <input type="text" id="option4" name="option4" required>
+            </div>
+            <div class="form-group">
+                <label for="correctOption">Correct Option</label>
+                <select id="correctOption" name="correctOption" required>
+                    <option value="" selected disabled>Select Correct Option</option>
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                    <option value="option4">Option 4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="marks">Marks</label>
+                <input type="number" id="marks" name="marks" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Create Question</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Result</title>
+</head>
+<body>
+    <h1>Exam Result</h1>
+    <p>Total Score: {{ total_score }}</p>
+    
+    <h2>Marked Questions:</h2>
+    <ul>
+        {% for question_id, is_correct in marked_questions %}
+            <li>
+                Question ID: {{ question_id }}
+                {% if is_correct %}
+                    <span style="color: green;">(Correct)</span>
+                {% else %}
+                    <span style="color: red;">(Incorrect)</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

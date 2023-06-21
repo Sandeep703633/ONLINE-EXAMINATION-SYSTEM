@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Attempted Exams</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #76ecf2;
+            border-radius: 5px;
+            background-color:aquamarine;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #736adf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>View Attempted Exams</h1>
+
+        <table>
+            <tr>
+                <th>Exam Name</th>
+                <th>Subject Code</th>
+                <th>Total Score</th>
+                <th>Incorrect</th>
+            </tr>
+            {% for exam in attempted_exams %}
+            <tr>
+                <td>{{ exam[0] }}</td>
+                <td>{{ exam[1] }}</td>
+                <td>{{ exam[2] }}</td>
+                <td>{{ exam[3] if exam[3] else 0 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>

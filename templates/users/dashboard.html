@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid aqua;
+            border-radius: 5px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .container li {
+            margin-bottom: 10px;
+        }
+        .container {
+            width: 300px;
+            margin: 20px 0 20px 20px; /* Adjusted margin property */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .container li a {
+            display: block;
+            padding: 5px;
+            text-decoration: none;
+            color:black;
+            background-color:aqua;
+            border-radius: 5px;
+        }
+
+        .container li a:hover {
+            background-color: #ddd;
+        }
+        body {
+            background-image: url("https://images.unsplash.com/photo-1516397281156-ca07cf9746fc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8b25saW5lJTIwZXhhbXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <ul>
+            <h2>User Dashboard</h2>
+            <li><a href="{{url_for('view_list')}}">View Available Exams</a></li>
+            <li><a href="{{url_for('exam_list')}}">Attempt Available Exams</a></li>
+            <li><a href="{{url_for('view_attempted_exams')}}">view Attempted Exams</a></li>
+        </ul>
+    </div>
+</body>
+</html>
